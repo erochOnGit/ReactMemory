@@ -5,9 +5,9 @@ const test = addAssertions(tape, { jsxEquals })
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../src/App';
-import Game from '../src/component/Game';
-import Title from '../src/component/Title';
+import App from '../App';
+import Game from '../component/Game';
+import Title from '../component/Title';
 
 import { createRenderer } from "react-dom/test-utils"
 

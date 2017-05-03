@@ -7,7 +7,7 @@ import jsxEquals from "tape-jsx-equals"
 const test = addAssertions(tape, { jsxEquals })
 
 import React from 'react';
-import Title from '../src/component/Title';
+import Title from '../component/Title';
 
 import { createRenderer } from "react-dom/test-utils"
 

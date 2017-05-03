@@ -8,7 +8,7 @@ import jsxEquals from "tape-jsx-equals"
 const test = addAssertions(tape, { jsxEquals })
 
 import React from 'react';
-import Memory from '../src/component/Memory';
+import Memory from '../component/Memory';
 
 
 import { createRenderer } from "react-dom/test-utils"

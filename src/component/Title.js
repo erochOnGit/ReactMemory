@@ -7,7 +7,6 @@ import React, { Component } from 'react';
     constructor(props) {
         super(props);
         if(props.name) {
-
             this.state = {name: props.name};
         }else{
             this.state = {name: "Game"};
