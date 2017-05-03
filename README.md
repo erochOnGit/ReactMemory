@@ -2,4 +2,4 @@
 
 INSTALL
 
-gi clone https://github.com/erochOnGit/ReactMemory.git
+git clone https://github.com/erochOnGit/ReactMemory.git
