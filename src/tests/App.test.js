@@ -11,7 +11,7 @@ import Title from '../component/Title';
 
 import { createRenderer } from "react-dom/test-utils"
 
-test("PASS : App is properly rendered", (t) => {
+test("################################# PASS : App is properly rendered #################################", (t) => {
     const renderer = createRenderer()
 
     renderer.render(
@@ -24,10 +24,10 @@ test("PASS : App is properly rendered", (t) => {
                 <Title name="memory" />
             </div>
             <div>
-                <Game />
+                <Game name="memory"/>
             </div>
         </div>,
-        "can render a App component if no image data are passed"
+        "can render a App component if memory is passed"
     )
 
     t.end()

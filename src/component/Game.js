@@ -14,11 +14,19 @@ class Game extends Component {
 
     }
     render() {
-        return (
-            <div className="game-container">
-                <Memory/>
-            </div>
-        );
+        if(this.state.name == "memory"){
+            return (
+                <div className="game-container">
+                    <Memory/>
+                </div>
+            );
+        }else{
+            return (
+                <div className="game-container">
+                no game specified
+                </div>
+            );
+        }
     }
 }
 

@@ -12,7 +12,7 @@ class App extends Component {
                     <Title name="memory"/>
                 </div>
                 <div>
-                    <Game />
+                    <Game name="memory"/>
                 </div>
             </div>
         );

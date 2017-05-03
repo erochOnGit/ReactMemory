@@ -1,5 +1,5 @@
 /**
- * Created by emile on 02/05/2017.
+ * Created by eroch on 03/05/2017.
  */
 
 import tape from "tape"
@@ -8,25 +8,20 @@ import jsxEquals from "tape-jsx-equals"
 const test = addAssertions(tape, { jsxEquals })
 
 import React from 'react';
-import Memory from '../component/Memory';
-import ControllerLaps from '../component/ControllerLaps';
 import ControllerPlayer from '../component/ControllerPlayer';
 
 import { createRenderer } from "react-dom/test-utils"
 
-test("################################# PASS : Memory is properly rendered #################################", (t) => {
+test("################################# PASS : ControllerPlayer is properly rendered #################################", (t) => {
     const renderer = createRenderer()
 
     renderer.render(
-        <Memory />
+        <ControllerPlayer />
     )
     t.jsxEquals(
         renderer.getRenderOutput(),
-        <div className="Memory">
-            <ControllerLaps />
-            <ControllerPlayer />
-        </div>,
-        "can render a Memory component if there is no data"
+        <div className="ControllerPlayer"></div>,
+        "can render a ControllerPlayer component if there is no data"
     )
 
     t.end()

@@ -13,7 +13,7 @@ import Title from '../component/Title';
 
 const gameName = "memory"
 
-test("Title is properly rendered", (t) => {
+test("################################# PASS : Title is properly rendered #################################", (t) => {
     const renderer = createRenderer()
 
     renderer.render(
@@ -29,7 +29,7 @@ test("Title is properly rendered", (t) => {
 })
 
 
-test("Title is properly rendered", (t) => {
+test("################################# PASS : Title is properly rendered #################################", (t) => {
     const renderer = createRenderer()
 
     renderer.render(
@@ -45,7 +45,7 @@ test("Title is properly rendered", (t) => {
     t.end()
 })
 
-test("Title is properly rendered", (t) => {
+test("################################# PASS : Title is properly rendered #################################", (t) => {
     const renderer = createRenderer()
 
     renderer.render(
