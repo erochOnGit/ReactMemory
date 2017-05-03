@@ -7,12 +7,13 @@ import jsxEquals from "tape-jsx-equals"
 const test = addAssertions(tape, { jsxEquals })
 
 import React from 'react';
-import Title from '../component/Title';
-
 import { createRenderer } from "react-dom/test-utils"
 
+import Title from '../component/Title';
+
 const gameName = "memory"
-    test("PASS : App is properly rendered", (t) => {
+
+test("Title is properly rendered", (t) => {
     const renderer = createRenderer()
 
     renderer.render(
@@ -24,6 +25,13 @@ const gameName = "memory"
         "can render a Title component if no name data are passed"
     )
 
+    t.end()
+})
+
+
+test("Title is properly rendered", (t) => {
+    const renderer = createRenderer()
+
     renderer.render(
         <Title name="" />
     )
@@ -32,6 +40,13 @@ const gameName = "memory"
         <h1>Game</h1>,
         "can render a Title component if name is empty"
     )
+
+
+    t.end()
+})
+
+test("Title is properly rendered", (t) => {
+    const renderer = createRenderer()
 
     renderer.render(
 
@@ -43,7 +58,6 @@ const gameName = "memory"
         <h1>memory</h1>,
         "can render a Title component if the name is fill"
     )
-
 
     t.end()
 })
