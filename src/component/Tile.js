@@ -14,7 +14,6 @@ class Tile extends Component {
             owner: this.props.owner};
     }
     render() {
-        console.log(this.props.id)
         return (
             <div className="Tile" id={this.state.id}></div>
         );
