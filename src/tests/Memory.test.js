@@ -11,6 +11,7 @@ import React from 'react';
 import Memory from '../component/Memory';
 import ControllerLaps from '../component/ControllerLaps';
 import ControllerPlayer from '../component/ControllerPlayer';
+import Tile from '../component/Tile';
 
 import { createRenderer } from "react-dom/test-utils"
 
@@ -23,6 +24,7 @@ test("################################# PASS : Memory is properly rendered #####
     t.jsxEquals(
         renderer.getRenderOutput(),
         <div className="Memory">
+            <Tile />
             <ControllerLaps />
             <ControllerPlayer />
         </div>,

@@ -4,6 +4,8 @@
 
 import React, { Component } from 'react';
 import Memory from './Memory';
+import '../style/Game.css';
+
 
 class Game extends Component {
     constructor(props) {

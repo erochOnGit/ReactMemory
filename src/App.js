@@ -11,9 +11,7 @@ class App extends Component {
                 <div className="App-header">
                     <Title name="memory"/>
                 </div>
-                <div>
                     <Game name="memory"/>
-                </div>
             </div>
         );
     }
