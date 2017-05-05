@@ -24,7 +24,37 @@ test("################################# PASS : Memory is properly rendered #####
     t.jsxEquals(
         renderer.getRenderOutput(),
         <div className="Memory">
-            <Tile />
+            <Tile
+                face=""
+                id="Tile1"
+                owner=""
+                picture=""
+            />
+            <Tile
+                face=""
+                id="Tile2"
+                owner=""
+                picture=""
+            />
+            <Tile
+                face=""
+                id="Tile3"
+                owner=""
+                picture=""
+            />
+            <Tile
+                face=""
+                id="Tile4"
+                owner=""
+                picture=""
+            />
+            <Tile
+                face=""
+                id="Tile5"
+                owner=""
+                picture=""
+            />
+
             <ControllerLaps />
             <ControllerPlayer />
         </div>,

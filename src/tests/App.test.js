@@ -23,9 +23,7 @@ test("################################# PASS : App is properly rendered ########
             <div className="App-header">
                 <Title name="memory" />
             </div>
-            <div>
                 <Game name="memory"/>
-            </div>
         </div>,
         "can render a App component if memory is passed"
     )
