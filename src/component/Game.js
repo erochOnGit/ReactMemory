@@ -16,7 +16,7 @@ class Game extends Component {
 
     }
     render() {
-        if(this.state.name == "memory"){
+        if(this.state.name === "memory"){
             return (
                 <div className="game-container">
                     <Memory/>

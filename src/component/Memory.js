@@ -14,47 +14,63 @@ class Memory extends Component {
         this.state = {name: this.props.name};
     }
     render() {
+        function importAll(r) {
+            let images = {};
+            r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+            return images;
+        }
+
+        const images = importAll(require.context('../static/img/cards/', false, /\.(png|jpe?g|svg)$/));
+
         const tiles = {
             Tile1: {
                 'key': '1',
                 "id": "Tile1",
-                "picture": "",
-                "face": "",
+                "picture": "lune.jpg",
+                "face": true,
                 "owner": "",
             }
             ,
             Tile2: {
                 'key': '2',
                 "id": "Tile2",
-                "picture": "",
-                "face": "",
+                "picture": "arrows.jpg",
+                "face": false,
                 "owner": "",
             }
             ,
             Tile3: {
                 'key': '3',
                 "id": "Tile3",
-                "picture": "",
-                "face": "",
+                "picture": "oeuf.png",
+                "face": false,
                 "owner": "",
             }
             ,
             Tile4: {
                 'key': '4',
                 "id": "Tile4",
-                "picture": "",
-                "face": "",
+                "picture": "eye.jpg",
+                "face": false,
                 "owner": "",
             }
             ,
             Tile5: {
                 'key': '5',
                 "id": "Tile5",
-                "picture": "",
-                "face": "",
+                "picture": "pomme.jpg",
+                "face": false,
                 "owner": "",
             }
-        }
+            ,
+            Tile6: {
+                'key': '6',
+                "id": "Tile6",
+                "picture": "paysage.jpg",
+                "face": false,
+                "owner": "",
+            }
+        };
         const listItems = Object.keys(tiles).map((key) =>
             <Tile
                 key={tiles[key].key}
@@ -67,7 +83,9 @@ class Memory extends Component {
         return (
             <div className="Memory">
                 {listItems}
-                <ControllerLaps />
+                <ControllerLaps
+                    tileList={listItems}
+                />
                 <ControllerPlayer />
             </div>
         );
