@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import "../style/Tile.css";
 
+
 class Tile extends Component {
     constructor(props) {
         super(props);
@@ -11,10 +12,11 @@ class Tile extends Component {
             id: this.props.id,
             picture: this.props.picture,
             face: this.props.face,
-            owner: this.props.owner};
+            owner: this.props.owner,
+            flipBack: this.props.flipBack};
     }
     render() {
-
+        var myTile = this;
         //image gestion
 
         function importAll(r) {
@@ -31,22 +33,31 @@ class Tile extends Component {
             display = images["dos.jpg"]
         }
 
-
+function getface() {
+    return myTile.state.face;
+}
         //click gestion
 
 
-            // function handleClick(e) {
-            //     e.stopPropagation()
-            //     e.preventDefault()
-            //     this.setState((face, props) => ({
-            //         face: !this.state.face
-            //     }));
-            //     if(this.state.face){
-            //         display= images[this.props.picture]
-            //     }else {
-            //         display = images["dos.jpg"]
-            //     }
-            // }
+            function handleClick(e) {
+                myTile.setState((face, props) => ({
+                    face: !myTile.state.face
+                }));
+                if(myTile.state.face){
+                    display= images[myTile.props.picture]
+                }else {
+                    display = images["dos.jpg"]
+                }
+                myTile.props.myFunc(!myTile.state.face,myTile.state.id);
+            }
+
+            // turn gestion
+                if(this.props.flipBack){
+                    myTile.setState((face, props) => ({
+                        face: false
+                    }));
+                    display = images["dos.jpg"]
+                }
 
         return (
             <div className="Tile" id={this.state.id} onClick={handleClick}>
