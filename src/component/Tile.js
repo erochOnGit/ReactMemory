@@ -15,7 +15,13 @@ class Tile extends Component {
             owner: this.props.owner,
             flipBack: this.props.flipBack};
     }
-    componentWillUpdate(nextProps){}
+    componentWillReceiveProps(nextProps){
+        if(nextProps.flipBack) {
+            this.setState((face, props) => ({
+                face: false
+            }));
+        }
+    }
     render() {
         var myTile = this;
         //image gestion
@@ -34,42 +40,50 @@ class Tile extends Component {
             display = images["dos.jpg"]
         }
 
-function getface() {
-    return myTile.state.face;
-}
+        function getface() {
+            return myTile.state.face;
+        }
         //click gestion
-
-
-            function handleClick(e) {
+        function handleClick(e) {
+            if(myTile.props.flipBack){
+                console.log(myTile.props.flipBack)
+                // myTile.setState((face, props) => ({
+                //     face: false
+                // }));
+                display = images["dos.jpg"]
+                myTile.props.flipBackFalse();
+            }else {
                 myTile.setState((face, props) => ({
                     face: !myTile.state.face
                 }));
-                if(myTile.state.face){
-                    display= images[myTile.props.picture]
-                }else {
+                if (myTile.state.face) {
+                    display = images[myTile.props.picture]
+                } else {
                     display = images["dos.jpg"]
                 }
-                myTile.props.myFunc(!myTile.state.face,myTile.state.id);
+                myTile.props.myFunc(myTile.state.face, myTile.state.id);
             }
+        }
 
-            // turn gestion
-                if(this.props.flipBack){
-                    myTile.setState((face, props) => ({
-                        face: false
-                    }));
-                    display = images["dos.jpg"]
-                }
+        // turn gestion
+        // if(this.props.flipBack){
+            // myTile.setState((face, props) => ({
+            //     face: false
+            // }));
+            // display = images["dos.jpg"]
+        // }
 
         return (
             <div className="Tile" id={this.state.id} onClick={handleClick}>
                 <img
-                     draggable="false"
-                     src={display}
-                     className="tilePicture"
-                     alt={this.props.id}
+                    draggable="false"
+                    src={display}
+                    className="tilePicture"
+                    alt={this.props.id}
                 />
             </div>
         );
     }
 }
+
 export default Tile;

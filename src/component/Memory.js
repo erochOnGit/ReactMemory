@@ -20,6 +20,7 @@ class Memory extends Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.setCard = this.setCard.bind(this);
+        this.flipBackFalse = this.flipBackFalse.bind(this);
 
     }
 
@@ -92,7 +93,8 @@ class Memory extends Component {
                 face={tiles[key].face}
                 owner={tiles[key].owner}
                 myFunc={this.handleClick}
-                flipBack = {this.state.flipBack}/>
+                flipBack = {this.state.flipBack}
+                flipBackFalse = {this.flipBackFalse}/>
 
         );
         return (
@@ -130,8 +132,18 @@ class Memory extends Component {
         console.log('-------------------********************--------------------')
     }
 
+    flipBackFalse() {
+        this.setState({
+            flipBack: false,
+        });
+
+        console.log('flipback'+this.state.flipBack);
+        console.log('-------------------*******flipback*****--------------------')
+    }
+
     setCard(card,player){
         console.log('-------------------******'+player+'****--------------------')
+        console.log('-------------------******'+card+'****--------------------')
         if(card=="card1"){
 
         }else if(card=="card2"){

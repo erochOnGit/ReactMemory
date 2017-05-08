@@ -26,12 +26,12 @@ class ControllerPlayer extends Component {
     }
     componentWillUpdate(nextProps){
         if (this.isOdd(this.props.turn)){
-            console.log('willupdate'+this.props.activePlayer)
+            console.log('willupdate odd'+this.props.activePlayer)
 
             nextProps.setCard("card1",this.props.activePlayer);
 
         }else if(!0){
-            console.log(this.props.activePlayer)
+            console.log('willupdate even'+this.props.activePlayer)
             nextProps.setCard("card2",this.props.activePlayer);
         }
     }
@@ -45,7 +45,7 @@ class ControllerPlayer extends Component {
 }
     render() {
 
-        let localTurnValue = this.state.turn;
+        // let localTurnValue = this.state.turn;
         // function isEven(n) {
         //     return n % 2 == 0;
         // }
@@ -78,7 +78,7 @@ class ControllerPlayer extends Component {
         }
 
         return (
-            <div className="ControllerPlayer" onClick={mafct}>aaa</div>
+            <div className="ControllerPlayer" onClick={mafct}>Axou</div>
         );
     }
 }
