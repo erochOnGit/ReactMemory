@@ -107,7 +107,7 @@ class Memory extends Component {
                     ActiveTileID={this.state.activeTileID}
                     ActiveTileFace={this.state.activeTileFace}
                     turn={this.state.turn}
-                    setCard={() => this.setCard}
+                    setCard={this.setCard}
                 />
             </div>
         );

@@ -15,6 +15,7 @@ class Tile extends Component {
             owner: this.props.owner,
             flipBack: this.props.flipBack};
     }
+    componentWillUpdate(nextProps){}
     render() {
         var myTile = this;
         //image gestion

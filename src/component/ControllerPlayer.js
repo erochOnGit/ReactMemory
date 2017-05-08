@@ -24,17 +24,18 @@ class ControllerPlayer extends Component {
         //     this.props.setCard("card2",this.props.activePlayer);
         // }
     }
-    componentWillMount(){
+    componentWillUpdate(nextProps){
         if (this.isOdd(this.props.turn)){
-            console.log(this.props.activePlayer)
+            console.log('willupdate'+this.props.activePlayer)
 
-            this.props.setCard("card1",this.props.activePlayer);
+            nextProps.setCard("card1",this.props.activePlayer);
 
         }else if(!0){
             console.log(this.props.activePlayer)
-            this.props.setCard("card2",this.props.activePlayer);
+            nextProps.setCard("card2",this.props.activePlayer);
         }
     }
+
      isEven(n) {
     return n % 2 == 0;
 }
@@ -43,6 +44,7 @@ class ControllerPlayer extends Component {
     return Math.abs(n % 2) == 1;
 }
     render() {
+
         let localTurnValue = this.state.turn;
         // function isEven(n) {
         //     return n % 2 == 0;
