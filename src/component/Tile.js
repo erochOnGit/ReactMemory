@@ -16,11 +16,11 @@ class Tile extends Component {
             flipBack: this.props.flipBack};
     }
     componentWillReceiveProps(nextProps){
-        if(nextProps.flipBack) {
-            this.setState((face, props) => ({
-                face: false
-            }));
-        }
+        // if(nextProps.flipBack) {
+        //     this.setState((face, props) => ({
+        //         face: false
+        //     }));
+        // }
     }
     render() {
         var myTile = this;
@@ -45,14 +45,6 @@ class Tile extends Component {
         }
         //click gestion
         function handleClick(e) {
-            if(myTile.props.flipBack){
-                console.log(myTile.props.flipBack)
-                // myTile.setState((face, props) => ({
-                //     face: false
-                // }));
-                display = images["dos.jpg"]
-                myTile.props.flipBackFalse();
-            }else {
                 myTile.setState((face, props) => ({
                     face: !myTile.state.face
                 }));
@@ -62,8 +54,18 @@ class Tile extends Component {
                     display = images["dos.jpg"]
                 }
                 myTile.props.myFunc(myTile.state.face, myTile.state.id);
-            }
-        }
+
+                if(myTile.props.flipBack) {
+
+                    console.log(myTile.props.flipBack)
+                    myTile.setState((face, props) => ({
+                        face: false
+                    }));
+                    display = images["dos.jpg"]
+                    myTile.props.flipBackFalse();
+                }
+
+                }
 
         // turn gestion
         // if(this.props.flipBack){

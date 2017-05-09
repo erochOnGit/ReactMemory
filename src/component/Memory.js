@@ -123,13 +123,9 @@ class Memory extends Component {
         });
 
         console.log('flipback'+this.state.flipBack);
-        console.log(this.state.turn);
-        console.log(face);
-        console.log(id);
-        console.log(this.state.activeTileFace)
-        console.log('-------------------********************--------------------')
-        console.log('-------------------********************--------------------')
-        console.log('-------------------********************--------------------')
+        console.log('turn : '+ this.state.turn);
+        console.log('face : '+ face);
+        console.log('id : '+id);
     }
 
     flipBackFalse() {
@@ -142,8 +138,8 @@ class Memory extends Component {
     }
 
     setCard(card,player){
-        console.log('-------------------******'+player+'****--------------------')
-        console.log('-------------------******'+card+'****--------------------')
+        console.log('player : '+player+'')
+        console.log('card : '+card+'')
         if(card=="card1"){
 
         }else if(card=="card2"){
@@ -151,7 +147,7 @@ class Memory extends Component {
             if(player=="player1") {
                 this.setState({
                     activePlayer:"player2",
-                    flipBack:false
+                    flipBack:true
                 });
             }else{
                 this.setState({
