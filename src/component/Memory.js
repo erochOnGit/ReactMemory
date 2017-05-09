@@ -11,11 +11,13 @@ import "../style/Memory.css";
 class Memory extends Component {
     constructor(props) {
         super(props);
-        this.state = {name: this.props.name,
+        this.state = {
+            name: this.props.name,
             turn:0,
             activePlayer:"player1",
             activeTileFace:false,
             activeTileID:"",
+            activeTilePicture:"",
             flipBack:false
         };
         this.handleClick = this.handleClick.bind(this);
@@ -48,7 +50,7 @@ class Memory extends Component {
             Tile2: {
                 'key': '2',
                 "id": "Tile2",
-                "picture": "arrows.jpg",
+                "picture": "lune.jpg",
                 "face": this.state.activeTileFace,
                 "owner": "",
             }
@@ -106,8 +108,9 @@ class Memory extends Component {
                 <ControllerPlayer
                     tileList={listItems}
                     activePlayer={this.state.activePlayer}
-                    ActiveTileID={this.state.activeTileID}
-                    ActiveTileFace={this.state.activeTileFace}
+                    activeTileID={this.state.activeTileID}
+                    activeTilePicture={this.state.activeTilePicture}
+                    activeTileFace={this.state.activeTileFace}
                     turn={this.state.turn}
                     setCard={this.setCard}
                 />
@@ -115,10 +118,11 @@ class Memory extends Component {
         );
     }
 
-    handleClick(face,id) {
+    handleClick(face,id,picture) {
         this.setState({
             activeTileFace: face,
             activeTileID:id,
+            activeTilePicture:picture,
             turn:this.state.turn+1
         });
 
@@ -126,6 +130,7 @@ class Memory extends Component {
         console.log('turn : '+ this.state.turn);
         console.log('face : '+ face);
         console.log('id : '+id);
+        console.log('picture : '+picture);
     }
 
     flipBackFalse() {

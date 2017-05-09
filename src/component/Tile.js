@@ -16,11 +16,14 @@ class Tile extends Component {
             flipBack: this.props.flipBack};
     }
     componentWillReceiveProps(nextProps){
-        // if(nextProps.flipBack) {
-        //     this.setState((face, props) => ({
-        //         face: false
-        //     }));
-        // }
+        if(nextProps.flipBack) {
+            console.log("on the firs clik");
+            this.setState((face, props) => ({
+                face: false
+            }));
+        }else{
+            // console.log("on the second clik");
+        }
     }
     render() {
         var myTile = this;
@@ -45,34 +48,32 @@ class Tile extends Component {
         }
         //click gestion
         function handleClick(e) {
-                myTile.setState((face, props) => ({
-                    face: !myTile.state.face
-                }));
-                if (myTile.state.face) {
-                    display = images[myTile.props.picture]
-                } else {
-                    display = images["dos.jpg"]
-                }
-                myTile.props.myFunc(myTile.state.face, myTile.state.id);
+            if(myTile.props.flipBack) {
 
-                if(myTile.props.flipBack) {
+                // myTile.setState((face, props) => ({
+                //     face: false
+                // }));
+                // display = images["dos.jpg"]
+                myTile.props.flipBackFalse();
+            }
 
-                    console.log(myTile.props.flipBack)
-                    myTile.setState((face, props) => ({
-                        face: false
-                    }));
-                    display = images["dos.jpg"]
-                    myTile.props.flipBackFalse();
-                }
-
-                }
+            myTile.setState((face, props) => ({
+                face: !myTile.state.face
+            }));
+            // if (myTile.state.face) {
+            //     display = images[myTile.props.picture]
+            // } else {
+            //     display = images["dos.jpg"]
+            // }
+            myTile.props.myFunc(myTile.state.face, myTile.state.id,myTile.state.picture);
+        }
 
         // turn gestion
         // if(this.props.flipBack){
-            // myTile.setState((face, props) => ({
-            //     face: false
-            // }));
-            // display = images["dos.jpg"]
+        //     myTile.setState((face, props) => ({
+        //         face: false
+        //     }));
+        //     display = images["dos.jpg"]
         // }
 
         return (

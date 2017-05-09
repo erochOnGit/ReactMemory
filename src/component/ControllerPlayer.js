@@ -10,6 +10,7 @@ class ControllerPlayer extends Component {
             activePlayer:this.props.activePlayer,
             activeTileID:this.props.activeTileID,
             activeTileFace:this.props.activeTileFace,
+            activeTilePicture:this.props.activeTilePicture,
             turn:0,
         }
     }
@@ -25,14 +26,18 @@ class ControllerPlayer extends Component {
         // }
     }
     componentWillUpdate(nextProps){
-        if (this.isOdd(this.props.turn)){
-            console.log('willupdate odd'+this.props.activePlayer)
+        console.log("next : " +nextProps.turn+"old : " +this.props.turn)
+        console.log('next picture : '+nextProps.activeTilePicture+' old picture : '+this.props.activeTilePicture)
+        if (this.isEven(this.props.turn)){
+            console.log('willupdate odd'+nextProps.activePlayer)
+            nextProps.setCard("card1",nextProps.activePlayer);
 
-            nextProps.setCard("card1",this.props.activePlayer);
-
-        }else if(!0){
-            console.log('willupdate even'+this.props.activePlayer)
-            nextProps.setCard("card2",this.props.activePlayer);
+        }else if(this.props.turn != 0){
+            console.log('willupdate even'+nextProps.activePlayer)
+            if(nextProps.activeTilePicture==this.props.activeTilePicture){
+                console.log('\n\nYOU MADE A PAIR\n\n\nlet\'s move the 2 tiles to anotherlist \nadd the current player to the owner state of tile');
+            }
+            nextProps.setCard("card2",nextProps.activePlayer);
         }
     }
 
