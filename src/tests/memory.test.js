@@ -12,9 +12,10 @@ function Memory(tabTiles){
             owned:function(){
                 for(var i = 0; i<tabObject.length;i++) {
                     tabOwned.push(this)
-                    if (tabObject[i].name==this.name&&this!=tabObject[i]) {
+                    if (tabObject[i].name==this.name) {
                         var index = tabObject.indexOf(this);
                         tabObject.splice(index,1)
+                        break;
                     }
                 }
             },
@@ -80,5 +81,5 @@ test('should have 2 tiles left when I flipped two same tiles',function(){
     let jeu = new Memory(['lune','soleil','lune','soleil'])
     jeu.tabTilesObject[0].flip();
     jeu.tabTilesObject[2].flip();
-    console.log(jeu.display());
+    expect(jeu.display().length).toEqual(2)
 })
